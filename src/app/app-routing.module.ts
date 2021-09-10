@@ -4,15 +4,16 @@ import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RouteGuardService } from './service/route-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  {path:"", component: LoginComponent},
-  {path:"login", component: LoginComponent},
-  {path:"welcome/:username", component: WelcomeComponent},
-  {path:"todos", component: ListTodosComponent},
-  {path:"logout", component: LogoutComponent},
-  {path:"**", component: ErrorComponent}
+  { path: "", component: LoginComponent },
+  { path: "login", component: LoginComponent },
+  { path: "welcome/:username", component: WelcomeComponent, canActivate:[RouteGuardService] },
+  { path: "todos", component: ListTodosComponent, canActivate:[RouteGuardService] },
+  { path: "logout", component: LogoutComponent, canActivate:[RouteGuardService] },
+  { path: "**", component: ErrorComponent }
 ];
 
 @NgModule({
