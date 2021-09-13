@@ -15,10 +15,10 @@ export class WelcomeDataService {
   ) { }
 
   executeHelloWorldBeanService() {
-    return this.http.get<HelloWorldBean>('http://localhost:8000/filetrans/test');
+    return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world');
   }
 
   executeHelloWorldServiceWithPathVariable(name:string) {
-    return this.http.get<HelloWorldBean>(`http://localhost:8000/filetrans/${name}`);
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);
   }
 }
