@@ -42,6 +42,11 @@ export class ListTodosComponent implements OnInit {
     )
   }
 
+  addTodo() {
+    this.router.navigate(['todos', -1])
+    console.log(`Create New Todo`);
+  }
+
   deleteTodo(id: number) {
     console.log(`Delete Todo: ${id}`);
     this.todoService.deleteTodo('AndyWang', id).subscribe(

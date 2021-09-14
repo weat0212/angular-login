@@ -11,6 +11,10 @@ export class TodoDataService {
     private http: HttpClient
   ) { }
 
+  createTodo(username: string, todo: Todo) {
+    return this.http.post(`http://localhost:8080/users/${username}/todos`, todo);
+  }
+
   retrieveAllTodos(username: string) {
     return this.http.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
   }
